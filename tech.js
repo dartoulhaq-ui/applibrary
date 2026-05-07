@@ -2,10 +2,11 @@
         const appsData = [
             {
                 id: 1,
-                name: "Capcut ",
-                badge: "Editor's Choice",
-                desc: "Fitur:<br> Unlock No Ads Premium Features.",
-                category: "Editor App",
+                name: "PVZ 2",
+                badge: "Classic Fun",
+                size: "145 MB",
+                desc: "Fitur: Unlimited $Cash -- Unlimited Sun.",
+                category: "Game",
                 iconUrl: "https://ui-avatars.com/api/?name=iM&background=0D8ABC&color=fff&rounded=true&size=128", // Placeholder icon
                 basicLink: "https://lynk.id/your_link_basic_1",
                 vipLink: "https://t.me/your_telegram_1"
@@ -14,6 +15,7 @@
                 id: 2,
                 name: "FocusFlow",
                 badge: "Productivity",
+                size: "32 MB",
                 desc: "Fitur: Pomodoro timer pintar untuk menjaga fokus kerjamu tetap maksimal.",
                 category: "Tools",
                 iconUrl: "https://ui-avatars.com/api/?name=FF&background=F59E0B&color=fff&rounded=true&size=128",
@@ -24,6 +26,7 @@
                 id: 3,
                 name: "NoteSync",
                 badge: "Top Rated",
+                size: "18 MB",
                 desc: "Fitur: Catatan digital tersinkronisasi di semua perangkat dengan dukungan Markdown.",
                 category: "Tools",
                 iconUrl: "https://ui-avatars.com/api/?name=NS&background=10B981&color=fff&rounded=true&size=128",
@@ -34,6 +37,7 @@
                 id: 4,
                 name: "MindMap Pro",
                 badge: "Creative",
+                size: "54 MB",
                 desc: "Fitur: Visualisasikan ide-ide kompleks dengan mind mapping berbasis AI.",
                 category: "Tools",
                 iconUrl: "https://ui-avatars.com/api/?name=MP&background=8B5CF6&color=fff&rounded=true&size=128",
@@ -44,6 +48,7 @@
                 id: 5,
                 name: "FinTrack",
                 badge: "Finance",
+                size: "28 MB",
                 desc: "Fitur: Pantau pengeluaran dan pemasukan bulanan untuk keuangan yang lebih sehat.",
                 category: "Tools",
                 iconUrl: "https://ui-avatars.com/api/?name=FT&background=EF4444&color=fff&rounded=true&size=128",
@@ -54,6 +59,7 @@
                 id: 6,
                 name: "GameX",
                 badge: "Game",
+                size: "210 MB",
                 desc: "Fitur: Game aksi seru dengan grafis HD dan multiplayer online.",
                 category: "Game",
                 iconUrl: "https://ui-avatars.com/api/?name=GX&background=FF6B6B&color=fff&rounded=true&size=128",
@@ -64,6 +70,7 @@
                 id: 7,
                 name: "Puzzle Master",
                 badge: "Game",
+                size: "90 MB",
                 desc: "Fitur: Game puzzle otak yang menantang untuk semua umur.",
                 category: "Game",
                 iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
@@ -79,16 +86,24 @@
         const filteredTitle = document.getElementById('filtered-title');
         const noResult = document.getElementById('no-result');
 
+        function debounce(fn, delay = 100) {
+            let timer;
+            return function (...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => fn.apply(this, args), delay);
+            };
+        }
+
         function renderCards(data, container = sliderContainer) {
             container.innerHTML = ''; 
 
-            if(container===filteredContainer) {
-                if(data.length ===0) {
+            if (container === filteredContainer) {
+                if (data.length === 0) {
                     container.innerHTML = '<div class="text-center py-10 text-apple-muted"><i class="bx bx-folder-open text-4xl mb-2"></i><p>Tidak ada aplikasi di kategori ini.</p></div>';
                     return;
                 }
-            }else{
-                if(data.length === 0) {
+            } else {
+                if (data.length === 0) {
                     noResult.classList.remove('hidden');
                     container.classList.add('hidden');
                     return;
@@ -96,30 +111,36 @@
                 noResult.classList.add('hidden');
                 container.classList.remove('hidden');
             }
+
             data.forEach(app => {
-                //glass rounded design
                 const cardHTML = `
                     <div class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-white rounded-3xl p-6 shadow-ios border border-gray-100/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
-                        
                         <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <img src="${app.iconUrl}" alt="${app.name} icon" class="w-16 h-16 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-300">
-                                <span class="px-3 py-1 bg-blue-50 text-apple-blue text-xs font-semibold rounded-full border border-blue-100">
-                                    ${app.badge}
-                                </span>
+                            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                                <img src="${app.iconUrl}" alt="${app.name} icon" loading="lazy" decoding="async" class="w-16 h-16 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-300">
+                                <div class="flex flex-col flex-1 min-w-0">
+                                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                                        <span class="px-3 py-1 bg-blue-50 text-apple-blue text-xs font-semibold rounded-full border border-blue-100">
+                                            ${app.badge}
+                                        </span>
+                                        <span class="text-xs text-apple-muted bg-slate-100 px-2 py-1 rounded-full">${app.size}</span>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-apple-text mb-1 truncate">${app.name}</h3>
+                                </div>
                             </div>
-                            <h3 class="text-xl font-semibold text-apple-text mb-1">${app.name}</h3>
-                            <p class="text-sm text-apple-muted line-clamp-2 h-10 mb-6">
-                                ${app.desc}
-                            </p>
+                            <div class="mb-6 overflow-hidden rounded-2xl bg-slate-50 py-3 px-2">
+                                <div class="marquee whitespace-nowrap text-sm text-apple-muted">
+                                    ${app.desc}
+                                </div>
+                            </div>
                         </div>
 
                         <div class="flex flex-col gap-3">
-                            <a href="${app.basicLink}" target="_blank" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-medium text-gray-700 bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:text-gray-900 transition-all duration-300">
+                            <a href="${app.basicLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-medium text-gray-700 bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:text-gray-900 transition-all duration-300">
                                 Coba Versi Basic
                             </a>
                             
-                            <a href="${app.vipLink}" target="_blank" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-apple-blue hover:from-blue-600 hover:to-blue-700 shadow-sm transition-all duration-300 flex justify-center items-center gap-1.5">
+                            <a href="${app.vipLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-apple-blue hover:from-blue-600 hover:to-blue-700 shadow-sm transition-all duration-300 flex justify-center items-center gap-1.5">
                                 <i class='bx bxs-crown text-base text-yellow-300'></i>
                                 Dapatkan VIP (No Ads)
                             </a>
@@ -133,22 +154,30 @@
         renderCards(appsData);
         // LOGIKA PENCARIAN
         function handleSearch(e) {
-            const keyword = e.target.value.toLowerCase();
+            const searchText = e.target.value;
+            const keyword = searchText.toLowerCase();
             const filteredData = appsData.filter(app => 
                 app.name.toLowerCase().includes(keyword) || 
                 app.desc.toLowerCase().includes(keyword) ||
                 app.badge.toLowerCase().includes(keyword)
             );
             renderCards(filteredData);
-            // Sinkronisasi input mobile & desktop
-            document.getElementById('searchInputDesktop').value = keyword;
-            document.getElementById('searchInputMobile').value = keyword;
-            // Hide filtered section when searching
+
+            const desktopInput = document.getElementById('searchInputDesktop');
+            const mobileInput = document.getElementById('searchInputMobile');
+            if (e.target === desktopInput && mobileInput.value !== searchText) {
+                mobileInput.value = searchText;
+            }
+            if (e.target === mobileInput && desktopInput.value !== searchText) {
+                desktopInput.value = searchText;
+            }
+
             filteredSection.classList.add('hidden');
         }
 
-        document.getElementById('searchInputDesktop').addEventListener('input', handleSearch);
-        document.getElementById('searchInputMobile').addEventListener('input', handleSearch);
+        const debouncedSearch = debounce(handleSearch, 120);
+        document.getElementById('searchInputDesktop').addEventListener('input', debouncedSearch);
+        document.getElementById('searchInputMobile').addEventListener('input', debouncedSearch);
         //LOGIKA SCROLL SLIDER
         const scrollAmount = 340; //perkiraan lebar kartu + gap
         

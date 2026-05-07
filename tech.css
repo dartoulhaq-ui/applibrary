@@ -6,5 +6,33 @@
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
-        /* Smooth scrolling */
+
+        .gold-shimmer {
+            background: linear-gradient(90deg, #f8e7a2, #fff7d6, #fbe8b0, #f8e7a2);
+            background-size: 240% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .marquee {
+            display: inline-block;
+            min-width: 100%;
+            animation: marquee 12s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        button, a {
+            touch-action: manipulation;
+        }
+
         html { scroll-behavior: smooth; }
