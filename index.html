@@ -12,16 +12,16 @@
     <script src="theme.js"></script>
     <link rel="stylesheet" href="tech.css">
 </head>
-<body class="bg-apple-bg text-apple-text font-sans antialiased selection:bg-apple-blue selection:text-white"> //! Ganti logo Applenya dengan logo yang bisa saya ubah dari file saya sendiri
+<body class="bg-apple-bg text-apple-text font-sans antialiased selection:bg-apple-blue selection:text-white"> 
 
     <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md border-b border-gray-200/50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="#" class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
-                    <img id="brandLogo" src="media/HUB.png" alt="iMDe AppLibrary logo" class="w-11 h-11 object-contain rounded-2xl border border-gray-200 bg-white shadow-sm" loading="lazy" decoding="async">
+                <a href="https://www.youtube.com/@iMDe001" class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <img id="brandLogo" src="media/HUB.png" alt="iMDe AppLibrary" class="w-11 h-11 object-contain rounded-2xl border bg-white shadow-sm" loading="lazy" decoding="async">
                     <div class="flex flex-col">
                         <span class="font-semibold text-lg tracking-tight gold-shimmer">iMDe AppLibrary</span>
-                        <span class="text-xs text-apple-muted">Kategori Aplikasi/Tool --></span>
+                        <span class="text-xs text-apple-muted">Cari/Pilih Kategori disini --></span>
                     </div>
                 </a>
 
@@ -42,25 +42,25 @@
                     <div id="categoryDropdown" class="absolute top-16 right-4 bg-white rounded-2xl shadow-lg border border-gray-200 p-4 hidden opacity-0 transform translate-y-2 transition-all duration-300 z-50">
                         <h3 class="text-sm font-semibold text-apple-text mb-3">Kategori Aplikasi</h3>
                         <div class="space-y-2">
-                            <button class="category-btn w-full text-left px-3 py-2 text-sm text-apple-muted hover:bg-gray-50 rounded-lg transition-colors" data-category="Editor App">App Pro</button>
+                            <button class="category-btn w-full text-left px-3 py-2 text-sm text-apple-muted hover:bg-gray-50 rounded-lg transition-colors" data-category="App">App Pro</button>
                             <button class="category-btn w-full text-left px-3 py-2 text-sm text-apple-muted hover:bg-gray-50 rounded-lg transition-colors" data-category="Game">Game</button>
                             <button class="category-btn w-full text-left px-3 py-2 text-sm text-apple-muted hover:bg-gray-50 rounded-lg transition-colors" data-category="Tools">Tools</button>
                             <button class="category-btn w-full text-left px-3 py-2 text-sm text-apple-muted hover:bg-gray-50 rounded-lg transition-colors" data-category="Most Popular">Most Popular</button>
                         </div>
                     </div>
-                    <a href="https://t.me/komunitasanda" target="_blank" class="hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-full text-sm font-medium text-white bg-black hover:bg-gray-800 transition-all duration-300 shadow-sm">
+                    <a href="https://t.me/iMDeCentre" target="_blank" class="hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-full text-sm font-medium text-white bg-black hover:bg-gray-800 transition-all duration-300 shadow-sm">
                         <i class='bx bxl-telegram mr-2'></i> Join Channel
                     </a>
                 </div>
             </div>
-            <div class="md:hidden pb-3">
+            <div class="md:hidden pb-3"> //tampilan mobile
                 <div class="relative w-full mb-3">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class='bx bx-search text-apple-muted text-lg'></i>
                     </div>
                     <input type="text" id="searchInputMobile" class="block w-full pl-10 pr-3 py-2 border-none rounded-full bg-gray-100/80 focus:bg-white focus:ring-2 focus:ring-apple-blue/50 text-sm placeholder-apple-muted transition-all shadow-sm" placeholder="Cari aplikasi...">
                 </div>
-                <a href="https://t.me/komunitasanda" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent rounded-full text-sm font-medium text-white bg-black hover:bg-gray-800 transition-all duration-300 shadow-sm">
+                <a href="https://t.me/iMDeCentre" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent rounded-full text-sm font-medium text-white bg-black hover:bg-gray-800 transition-all duration-300 shadow-sm">
                     <i class='bx bxl-telegram mr-2'></i> Join Channel
                 </a>
             </div>
@@ -71,10 +71,11 @@
         
         <section class="text-center px-4 mb-16 max-w-3xl mx-auto">
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-apple-text">
-               ->->-<-<- <br> Tingkatkan Produktivitasmu<br class="hidden md:block"> dengan Produk pilihan kami.
+               📨<br> Bebas pilih sesukamu !<br class="hidden md:block"> Aman dari segala risiko dan 100% bekerja.
             </h1>
             <p class="text-lg text-apple-muted mb-8 font-light">
-                Kurasi aplikasi dan tools premium untuk mempercepat alur aktivitas Anda. Temukan, coba, dan jadilah lebih efisien hari harimu.
+                Kurasi aplikasi dan tools premium untuk mempercepat alur aktivitas Anda. Temukan, coba, dan jadilah lebih efisien hari harimu.<br>
+                <span class="font-semibold text-lg tracking-tight clue-shimmer">Note: <br> < Versi [Basic] adalah versi gratis dengan iklan > <br> < sedangkan [VIP] adalah versi berbayar tanpa iklan dan akses lebih cepat. > <br> Semua file disini 100% aman dan telah terverifikasi</span>
             </p>
             <button onclick="scrollToCatalog()" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-apple-blue hover:bg-apple-blueHover shadow-[0_4px_14px_0_rgba(0,113,227,0.39)] transition-all duration-300 transform hover:scale-105">
                 Jelajahi Katalog <i class='bx bx-chevron-down ml-2 text-xl'></i> 
@@ -139,7 +140,7 @@
     <footer class="bg-apple-bg py-6 text-center border-t border-gray-200/60">
         <p class="text-sm text-apple-muted">
             &copy; <span id="year"></span> iMDe Forum. Hak cipta dilindungi. <br class="sm:hidden">
-            <a href="privacy.html" class="text-apple-blue hover:underline mt-2 sm:mt-0 sm:ml-2">Kebijakan Privasi</a>
+            <a href="private/privacy.html" class="text-apple-blue hover:underline mt-2 sm:mt-0 sm:ml-2">Kebijakan Privasi</a>
         </p>
     </footer>
 

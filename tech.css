@@ -8,11 +8,18 @@
         }
 
         .gold-shimmer {
-            background: linear-gradient(90deg, #f8e7a2, #fff7d6, #fbe8b0, #f8e7a2);
+            background: linear-gradient(90deg, #2f44ff, #e4dddd, #28cee4, #2f44ff);
             background-size: 240% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shimmer 3s ease-in-out infinite;
+            animation: shimmer 2s ease-in-out infinite;
+        }
+        .clue-shimmer {
+            background: linear-gradient(90deg, #69ca0f, #113104, #d80d0d, #151516);
+            background-size: 240% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 7s ease-in-out infinite;
         }
 
         @keyframes shimmer {
