@@ -15,7 +15,7 @@
             animation: shimmer 2s ease-in-out infinite;
         }
         .clue-shimmer {
-            background: linear-gradient(90deg, #69ca0f, #113104, #d80d0d, #151516);
+            background: linear-gradient(90deg, #111110, #3b0537, #0a8552, #151516);
             background-size: 240% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
