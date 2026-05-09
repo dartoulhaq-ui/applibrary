@@ -20,7 +20,7 @@
                 category: "App",
                 iconUrl: "https://ui-avatars.com/api/?name=FF&background=F59E0B&color=fff&rounded=true&size=128",
                 basicLink: "https://safefileku.com/download/gtSBaHDv93ByF0mn",
-                vipLink: "https://lynk.id/"
+                vipLink: "https://lynk.id/imde"
             },
             {
                 id: 3,
