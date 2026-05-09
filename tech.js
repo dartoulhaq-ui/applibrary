@@ -19,8 +19,8 @@
                 desc: "Aplikasi Emulator untuk bermain game PlayStation di perangkat mobile dengan Fitur premium.",
                 category: "App",
                 iconUrl: "https://ui-avatars.com/api/?name=FF&background=F59E0B&color=fff&rounded=true&size=128",
-                basicLink: "https://lynk.id/your_link_basic_2",
-                vipLink: "https://t.me/your_telegram_2"
+                basicLink: "https://safefileku.com/download/gtSBaHDv93ByF0mn",
+                vipLink: "https://lynk.id/"
             },
             {
                 id: 3,
@@ -79,6 +79,7 @@
             }
             // Add here++
         ];
+
         //FUNGSI RENDER KARTU
         const sliderContainer = document.getElementById('app-slider');
         const filteredContainer = document.getElementById('filtered-slider');
@@ -232,9 +233,9 @@
         });
         function filterByCategory(category) {
             let filteredData;
-            if (category === 'Most Popular') {
+            if (category === 'Trend') {
                 filteredData = appsData.filter(app => 
-                    app.badge === "Editor's Choice" || app.badge === "Top Rated"
+                    app.badge === "Most Dwonload" || app.badge === "Top Rated" || app.badge ==="Viral!!!"
                 );
             } else {
                 filteredData = appsData.filter(app => app.category === category);
