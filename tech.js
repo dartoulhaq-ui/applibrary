@@ -7,6 +7,7 @@
                 size: "145 MB",
                 desc: "Plants vs Zombies 2: Game turn base strategi tema Zombie.Cocok buat ber nostalgia.",
                 category: "Game",
+                rating:  4.5,
                 iconUrl: "https://ui-avatars.com/api/?name=iM&background=0D8ABC&color=fff&rounded=true&size=128", // Placeholder icon
                 basicLink: "https://lynk.id/your_link_basic_1",
                 vipLink: "https://t.me/your_telegram_1"
@@ -18,9 +19,10 @@
                 size: "32 MB",
                 desc: "Aplikasi Emulator untuk bermain game PlayStation di perangkat mobile dengan Fitur premium.",
                 category: "App",
+                rating: 4.8,
                 iconUrl: "https://ui-avatars.com/api/?name=FF&background=F59E0B&color=fff&rounded=true&size=128",
                 basicLink: "https://safefileku.com/download/gtSBaHDv93ByF0mn",
-                vipLink: "https://lynk.id/imde"
+                vipLink: "http://lynk.id/imde/ym3dxjqe9dp8/checkout"
             },
             {
                 id: 3,
@@ -29,6 +31,7 @@
                 size: "18 MB",
                 desc: "Fitur: Catatan digital tersinkronisasi di semua perangkat dengan dukungan Markdown.",
                 category: "Tools",
+                rating: 4.2,
                 iconUrl: "https://ui-avatars.com/api/?name=NS&background=10B981&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_3",
                 vipLink: "https://t.me/your_telegram_3"
@@ -40,6 +43,7 @@
                 size: "54 MB",
                 desc: "Fitur: Visualisasikan ide-ide kompleks dengan mind mapping berbasis AI.",
                 category: "Tools",
+                rating: 4.7,
                 iconUrl: "https://ui-avatars.com/api/?name=MP&background=8B5CF6&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_4",
                 vipLink: "https://t.me/your_telegram_4"
@@ -51,6 +55,7 @@
                 size: "28 MB",
                 desc: "Fitur: Pantau pengeluaran dan pemasukan bulanan untuk keuangan yang lebih sehat.",
                 category: "App",
+                rating: 4.0,
                 iconUrl: "https://ui-avatars.com/api/?name=FT&background=EF4444&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_5",
                 vipLink: "https://t.me/your_telegram_5"
@@ -62,6 +67,7 @@
                 size: "3.1 GB",
                 desc: "Game dari Anime Naruto Shippuden seru dengan grafis HD dan story yang menarik.",
                 category: "Game",
+                rating: 4.9,
                 iconUrl: "https://ui-avatars.com/api/?name=GX&background=FF6B6B&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_6",
                 vipLink: "https://t.me/your_telegram_6"
@@ -73,6 +79,7 @@
                 size: "90 MB",
                 desc: "Fitur: Game puzzle otak yang menantang untuk semua umur.",
                 category: "Game",
+                rating: 4.3,
                 iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_7",
                 vipLink: "https://t.me/your_telegram_7"
@@ -87,12 +94,42 @@
         const filteredTitle = document.getElementById('filtered-title');
         const noResult = document.getElementById('no-result');
 
+        function parseSize(sizeStr) {
+            const match = sizeStr.match(/(\d+(?:\.\d+)?)\s*(MB|GB)/i);
+            if (!match) return 0;
+            const num = parseFloat(match[1]);
+            const unit = match[2].toUpperCase();
+            return unit === 'GB' ? num * 1024 : num;
+        }
         function debounce(fn, delay = 100) {
             let timer;
             return function (...args) {
                 clearTimeout(timer);
                 timer = setTimeout(() => fn.apply(this, args), delay);
             };
+        }
+
+        let currentSort = 'name-asc';
+
+        function sortData(data, sortType) {
+            const sorted = [...data];
+            switch (sortType) {
+                case 'name-asc':
+                    sorted.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'name-desc':
+                    sorted.sort((a, b) => b.name.localeCompare(a.name));
+                    break;
+                case 'size-asc':
+                    sorted.sort((a, b) => parseSize(a.size) - parseSize(b.size));
+                    break;
+                case 'size-desc':
+                    sorted.sort((a, b) => parseSize(b.size) - parseSize(a.size));
+                    break;
+                default:
+                    break;
+            }
+            return sorted;
         }
 
         function renderCards(data, container = sliderContainer) {
@@ -137,13 +174,14 @@
                         </div>
 
                         <div class="flex flex-col gap-3">
+                            <p class="text-xs text-apple-muted text-center">⭐: ${app.rating}/5</p>
                             <a href="${app.basicLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-medium text-gray-700 bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:text-gray-900 transition-all duration-300">
-                                Coba Versi Basic
+                                Dengan Iklan & PW
                             </a>
                             
                             <a href="${app.vipLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-apple-blue hover:from-blue-600 hover:to-blue-700 shadow-sm transition-all duration-300 flex justify-center items-center gap-1.5">
                                 <i class='bx bxs-crown text-base text-yellow-300'></i>
-                                Dapatkan VIP (No Ads)
+                                Download Tanpa Iklan Disini
                             </a>
                         </div>
                     </div>
@@ -241,6 +279,7 @@
                 filteredData = appsData.filter(app => app.category === category);
             }
             
+            filteredData = sortData(filteredData, currentSort);
             filteredTitle.textContent = `Kategori: ${category}`;
             renderCards(filteredData, filteredContainer);
             filteredSection.classList.remove('hidden');
@@ -251,4 +290,13 @@
         function clearFilter() {
             filteredSection.classList.add('hidden');
             renderCards(appsData); // Reset to all apps
+        }
+
+        function setSort(sortType) {
+            currentSort = sortType;
+            // Jika filtered section terlihat, re-render dengan sorting baru
+            if (!filteredSection.classList.contains('hidden')) {
+                const category = filteredTitle.textContent.replace('Kategori: ', '');
+                filterByCategory(category);
+            }
         }

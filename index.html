@@ -30,7 +30,7 @@
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i class='bx bx-search text-apple-muted text-lg'></i>
                         </div>
-                        <input type="text" id="searchInputDesktop" class="block w-full pl-10 pr-3 py-2 border-none rounded-full bg-gray-100/80 focus:bg-white focus:ring-2 focus:ring-apple-blue/50 text-sm placeholder-apple-muted transition-all duration-300 shadow-sm" placeholder="Cari disini (misal: )...">
+                        <input type="text" id="searchInputDesktop" class="block w-full pl-10 pr-3 py-2 border-none rounded-full bg-gray-100/80 focus:bg-white focus:ring-2 focus:ring-apple-blue/50 text-sm placeholder-apple-muted transition-all duration-300 shadow-sm" placeholder="Cari disini (misal: GTA Liberty )...">
                     </div>
                 </div>
 
@@ -71,11 +71,11 @@
         
         <section class="text-center px-4 mb-16 max-w-3xl mx-auto">
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-apple-text">
-               📨<br> Bebas pilih sesukamu !<br class="hidden md:block"> Aman dari segala risiko dan 100% bekerja.
+               📨<br>Gudang Tools&Game Premium<br class="hidden md:block"> 100% Bersih, Tanpa iklan Sampah.
             </h1>
             <p class="text-lg text-apple-muted mb-8 font-light">
-                Kurasi aplikasi dan tools premium untuk mempercepat alur aktivitas Anda. Temukan, coba, dan jadilah lebih efisien hari harimu.<br>
-                <span class="font-semibold text-lg tracking-tight clue-shimmer">Note: <br> < Versi [Basic] adalah versi gratis dengan iklan > <br> < sedangkan [VIP] adalah versi berbayar tanpa iklan dan akses lebih cepat. > <br> Semua file disini 100% aman dan telah terverifikasi</span>
+                >->->_<-<-<<br>
+                <span class="font-semibold text-lg tracking-tight clue-shimmer">Note: <br> <🛡️Basic : Opsi Free(Via iklan+ PW(Biasanya di akhir video) )> <br> < 👑 VIP: Langsung Dwonload, Bebas Iklan, No PW +Bonus Item > <br> Semua file disini 100% aman dan telah terverifikasi</span>
             </p>
             <button onclick="scrollToCatalog()" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-apple-blue hover:bg-apple-blueHover shadow-[0_4px_14px_0_rgba(0,113,227,0.39)] transition-all duration-300 transform hover:scale-105">
                 Jelajahi Katalog <i class='bx bx-chevron-down ml-2 text-xl'></i> 
@@ -116,6 +116,13 @@
                 <button onclick="clearFilter()" class="px-4 py-2 text-sm text-apple-blue hover:bg-blue-50 rounded-full transition-colors">
                     <i class='bx bx-x mr-1'></i> Hapus Filter
                 </button>
+            </div>
+            <div class="flex gap-2 mt-4">
+                <p style="size: 1px;">Klik ini --> <br>Untuk Filtering</p>
+                <button onclick="setSort('name-asc')" class="px-3 py-1 text-xs bg-blue-100 hover:bg-green-200 rounded-full">Dari A-Z</button>
+                <button onclick="setSort('name-desc')" class="px-3 py-1 text-xs bg-blue-100 hover:bg-gray-200 rounded-full">Dari Z-A</button>
+                <button onclick="setSort('size-asc')" class="px-3 py-1 text-xs bg-green-100 hover:bg-gray-200 rounded-full">Size Smaller ↑</button>
+                <button onclick="setSort('size-desc')" class="px-3 py-1 text-xs bg-green-100 hover:bg-gray-200 rounded-full">Size Bigger ↓</button>
             </div>
 
             <div id="filtered-slider" class="flex gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8 pt-2">
