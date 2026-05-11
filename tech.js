@@ -1,4 +1,15 @@
         document.getElementById('year').textContent = new Date().getFullYear();
+        //Banner Slide
+        let bannerIndex = 0;
+        const bannerSlider = document.getElementById('banner-slider');
+        const bannerImages = bannerSlider.children;
+        const totalBanners = bannerImages.length;
+
+        function slideBanner() {
+            bannerIndex = (bannerIndex + 1) % totalBanners;
+            bannerSlider.style.transform = `translateX(-${bannerIndex * 100}%)`;
+        }
+        setInterval(slideBanner, 2500); 
         const appsData = [
             {
                 id: 1,
@@ -152,36 +163,36 @@
 
             data.forEach(app => {
                 const cardHTML = `
-                    <div class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-white rounded-3xl p-6 shadow-ios border border-gray-100/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                    <div class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-ios border border-gray-100/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
                                 <img src="${app.iconUrl}" alt="${app.name} icon" loading="lazy" decoding="async" class="w-16 h-16 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-300">
                                 <div class="flex flex-col flex-1 min-w-0">
                                     <div class="flex flex-wrap items-center gap-2 mb-2">
-                                        <span class="px-3 py-1 bg-blue-50 text-apple-blue text-xs font-semibold rounded-full border border-blue-100">
+                                        <span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/50 text-apple-blue dark:text-blue-300 text-xs font-semibold rounded-full border border-blue-100 dark:border-blue-800">
                                             ${app.badge}
                                         </span>
-                                        <span class="text-xs text-apple-muted bg-slate-100 px-2 py-1 rounded-full">${app.size}</span>
+                                        <span class="text-xs text-apple-muted dark:text-gray-400 bg-slate-100 dark:bg-gray-700 px-2 py-1 rounded-full">${app.size}</span>
                                     </div>
-                                    <h3 class="text-xl font-semibold text-apple-text mb-1 truncate">${app.name}</h3>
+                                    <h3 class="text-xl font-semibold text-apple-text dark:text-gray-100 mb-1 truncate">${app.name}</h3>
                                 </div>
                             </div>
-                            <div class="mb-6 overflow-hidden rounded-2xl bg-slate-50 py-3 px-2">
-                                <div class="marquee whitespace-nowrap text-sm text-apple-muted">
+                            <div class="mb-6 overflow-hidden rounded-2xl bg-slate-50 dark:bg-gray-700 py-3 px-2">
+                                <div class="marquee whitespace-nowrap text-sm text-apple-muted dark:text-gray-300">
                                     ${app.desc}
                                 </div>
                             </div>
                         </div>
 
                         <div class="flex flex-col gap-3">
-                            <p class="text-xs text-apple-muted text-center">⭐: ${app.rating}/5</p>
-                            <a href="${app.basicLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-medium text-gray-700 bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:text-gray-900 transition-all duration-300">
-                                Dengan Iklan & PW
+                            <p class="text-xs text-apple-muted dark:text-gray-400 text-center">⭐: ${app.rating}/5</p>
+                            <a href="${app.basicLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 active:scale-95">
+                                BASIC(Dengan Iklan+PW)
                             </a>
                             
-                            <a href="${app.vipLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-apple-blue hover:from-blue-600 hover:to-blue-700 shadow-sm transition-all duration-300 flex justify-center items-center gap-1.5">
+                            <a href="${app.vipLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-apple-blue hover:from-blue-600 hover:to-blue-700 shadow-sm transition-all duration-300 flex justify-center items-center gap-1.5 active:scale-95">
                                 <i class='bx bxs-crown text-base text-yellow-300'></i>
-                                Download Tanpa Iklan Disini
+                                NO PASSWORD & EASY INSTALL
                             </a>
                         </div>
                     </div>
@@ -300,3 +311,168 @@
                 filterByCategory(category);
             }
         }
+
+        // Help Menu Functionality
+        const helpFab = document.getElementById('help-fab');
+        const helpPopup = document.getElementById('help-popup');
+        const liveChatBtn = document.getElementById('live-chat-btn');
+        const panduanBtn = document.getElementById('panduan-btn');
+        const faqBtn = document.getElementById('faq-btn');
+        const panduanModal = document.getElementById('panduan-modal');
+        const closePanduan = document.getElementById('close-panduan');
+        const panduanOverlay = document.getElementById('panduan-overlay');
+
+        helpFab.addEventListener('click', () => {
+            const isHidden = helpPopup.classList.contains('hidden');
+            if (isHidden) {
+                helpPopup.classList.remove('hidden');
+                setTimeout(() => {
+                    helpPopup.classList.remove('opacity-0', 'translate-y-4');
+                }, 10);
+            } else {
+                helpPopup.classList.add('opacity-0', 'translate-y-4');
+                setTimeout(() => {
+                    helpPopup.classList.add('hidden');
+                }, 300);
+            }
+        });
+
+        // Close popup when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!helpFab.contains(e.target) && !helpPopup.contains(e.target)) {
+                helpPopup.classList.add('opacity-0', 'translate-y-4');
+                setTimeout(() => {
+                    helpPopup.classList.add('hidden');
+                }, 300);
+            }
+        });
+
+        liveChatBtn.addEventListener('click', () => {
+            window.open('https://t.me/your_telegram_link', '_blank'); // Ganti dengan link Telegram Anda
+            helpPopup.classList.add('opacity-0', 'translate-y-4');
+            setTimeout(() => {
+                helpPopup.classList.add('hidden');
+            }, 300);
+        });
+
+        panduanBtn.addEventListener('click', () => {
+            panduanModal.classList.remove('hidden');
+            setTimeout(() => {
+                panduanModal.classList.remove('opacity-0');
+            }, 10);
+            helpPopup.classList.add('opacity-0', 'translate-y-4');
+            setTimeout(() => {
+                helpPopup.classList.add('hidden');
+            }, 300);
+        });
+
+        faqBtn.addEventListener('click', () => {
+            window.location.href = 'private/faq.html';
+        });
+
+        closePanduan.addEventListener('click', () => {
+            panduanModal.classList.add('opacity-0');
+            setTimeout(() => {
+                panduanModal.classList.add('hidden');
+            }, 300);
+        });
+
+        panduanOverlay.addEventListener('click', () => {
+            panduanModal.classList.add('opacity-0');
+            setTimeout(() => {
+                panduanModal.classList.add('hidden');
+            }, 300);
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            html.classList.add('dark');
+            darkModeIcon.innerHTML = '🌙';
+        } else {
+            html.classList.remove('dark');
+            darkModeIcon.innerHTML = '☀️';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            console.log('Current classes:', html.classList.contains('dark'));
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                darkModeIcon.innerHTML = '☀️';
+                localStorage.setItem('theme', 'light');
+                console.log('Switched to light mode');
+            } else {
+                html.classList.add('dark');
+                darkModeIcon.innerHTML = '🌙';
+                localStorage.setItem('theme', 'dark');
+                console.log('Switched to dark mode');
+            }
+        });
+
+        // Toast Notification System
+        const toastContainer = document.getElementById('toast-container');
+        const names = ['AlexTzy', 'fauzan01', 'AdamMh', 'Wowo', 'Fufaffa', 'rizky', 'David', 'surya', 'Agus', 'chelln'];
+        const apps = ['PVZ 2', 'PPSSPP Gold', 'NoteSync', 'MindMap Pro', 'FinTrack', 'Naruto Ultimate Ninja Storm', 'Puzzle Master'];
+        const timeUnits = ['detik', 'menit', 'jam'];
+
+        function getRandomTime() {
+            const unit = timeUnits[Math.floor(Math.random() * timeUnits.length)];
+            let value;
+            switch (unit) {
+                case 'detik':
+                    value = Math.floor(Math.random() * 59) + 1;
+                    break;
+                case 'menit':
+                    value = Math.floor(Math.random() * 59) + 1;
+                    break;
+                case 'jam':
+                    value = Math.floor(Math.random() * 23) + 1;
+                    break;
+            }
+            return `${value} ${unit}`;
+        }
+
+        function showToast() {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const app = apps[Math.floor(Math.random() * apps.length)];
+            const time = getRandomTime();
+
+            const toast = document.createElement('div');
+            toast.className = 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-4 py-3 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 max-w-xs toast-slide-in';
+            toast.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <span class="text-lg">🎉</span>
+                    <div class="flex-1 text-sm">
+                        <span class="font-medium">${name}</span> telah membeli <span class="font-medium">${app}</span> <span class="text-gray-500 dark:text-gray-400">${time} yang lalu</span>
+                    </div>
+                </div>
+            `;
+
+            toastContainer.appendChild(toast);
+
+            // Remove toast after 5 seconds
+            setTimeout(() => {
+                toast.classList.add('toast-fade-out');
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 500);
+            }, 5000);
+        }
+
+        function scheduleNextToast() {
+            const delay = Math.random() * (20000 - 6000) + 6000; // Random delay between 6-20 seconds
+            setTimeout(() => {
+                showToast();
+                scheduleNextToast(); // Schedule the next toast
+            }, delay);
+        }
+
+        // Start the toast notification system
+        scheduleNextToast();

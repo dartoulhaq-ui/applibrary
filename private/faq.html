@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - iMDe AppLebrary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../theme.js"></script>
+    <link rel="stylesheet" href="../tech.css">
+</head>
+<body class="bg-apple-bg dark:bg-gray-900 text-apple-text dark:text-gray-100 font-sans antialiased selection:bg-apple-blue selection:text-white">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="../index.html" class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <img id="brandLogo" src="../media/HUB.png" alt="iMDe AppLibrary" class="w-11 h-11 object-contain rounded-2xl border bg-white shadow-sm" loading="lazy" decoding="async">
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-lg tracking-tight gold-shimmer">iMDe AppLebrary</span>
+                        <span class="text-xs text-apple-muted">FAQ & Bantuan</span>
+                    </div>
+                </a>
+                <a href="../index.html" class="inline-flex items-center px-4 py-2 border border-transparent rounded-full text-sm font-medium text-white bg-apple-blue hover:bg-apple-blueHover transition-all duration-300 shadow-sm active:scale-95">
+                    <i class='bx bx-arrow-back mr-2'></i> Back
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-16">
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold tracking-tight mb-4 text-apple-text">
+                    Pertanyaan yang Sering Diajukan
+                </h1>
+                <p class="text-lg text-apple-muted">
+                    Temukan jawaban untuk pertanyaan umum tentang layanan kami
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-2xl shadow-ios border border-gray-100/50 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors active:scale-95" data-target="faq1">
+                        <span class="text-lg font-medium text-apple-text">Bagaimana jika Aplikasi gagal terinstall?</span>
+                        <i class='bx bx-chevron-down text-2xl text-apple-muted transition-transform duration-300'></i>
+                    </button>
+                    <div id="faq1" class="faq-content hidden px-6 pb-4">
+                        <p class="text-apple-muted">
+                            Jika aplikasi gagal terinstall, pastikan perangkat Anda memiliki cukup ruang penyimpanan. Coba restart perangkat dan pastikan koneksi internet stabil. Jika masih bermasalah, hubungi admin melalui Live Chat untuk bantuan lebih lanjut.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-2xl shadow-ios border border-gray-100/50 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors active:scale-95" data-target="faq2">
+                        <span class="text-lg font-medium text-apple-text">Apakah ini benar benar aman dari virus?</span>
+                        <i class='bx bx-chevron-down text-2xl text-apple-muted transition-transform duration-300'></i>
+                    </button>
+                    <div id="faq2" class="faq-content hidden px-6 pb-4">
+                        <p class="text-apple-muted">
+                            Ya, semua file yang tersedia di platform kami telah melalui proses verifikasi keamanan secara menyeluruh. Kami menggunakan sistem pemindaian antivirus terdepan dan hanya menyediakan aplikasi dari sumber terpercaya. Namun, selalu gunakan antivirus di perangkat Anda sebagai langkah pencegahan tambahan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-2xl shadow-ios border border-gray-100/50 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors active:scale-95" data-target="faq3">
+                        <span class="text-lg font-medium text-apple-text">Cara refund pembayaran?</span>
+                        <i class='bx bx-chevron-down text-2xl text-apple-muted transition-transform duration-300'></i>
+                    </button>
+                    <div id="faq3" class="faq-content hidden px-6 pb-4">
+                        <p class="text-apple-muted">
+                            Refund dapat diminta dalam waktu 24 jam setelah pembelian jika aplikasi tidak dapat didownload atau ada masalah teknis. Hubungi admin melalui Live Chat dengan menyertakan bukti pembayaran. Kami akan memproses refund dalam 3-5 hari kerja.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-2xl shadow-ios border border-gray-100/50 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors active:scale-95" data-target="faq4">
+                        <span class="text-lg font-medium text-apple-text">Cara mengatasi link tidak muncul?</span>
+                        <i class='bx bx-chevron-down text-2xl text-apple-muted transition-transform duration-300'></i>
+                    </button>
+                    <div id="faq4" class="faq-content hidden px-6 pb-4">
+                        <p class="text-apple-muted">
+                            Jika link download tidak muncul, pastikan Anda telah menyelesaikan langkah verifikasi (seperti menonton iklan atau memasukkan password). Coba refresh halaman atau gunakan browser yang berbeda. Jika masih bermasalah, hubungi admin untuk mendapatkan link alternatif.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-apple-muted mb-4">
+                    Masih punya pertanyaan? Hubungi kami melalui Live Chat
+                </p>
+                <a href="https://t.me/your_telegram_link" target="_blank" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-apple-blue hover:bg-apple-blueHover shadow-[0_4px_14px_0_rgba(0,113,227,0.39)] transition-all duration-300 transform hover:scale-105 active:scale-95">
+                    <i class='bx bxl-telegram mr-2'></i> Live Chat Admin
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-apple-bg py-6 text-center border-t border-gray-200/60">
+        <p class="text-sm text-apple-muted">
+            &copy; <span id="year"></span> iMDe Forum. Hak cipta dilindungi. <br class="sm:hidden">
+            <a href="privacy.html" class="text-apple-blue hover:underline mt-2 sm:mt-0 sm:ml-2">Kebijakan Privasi</a>
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // FAQ Accordion Functionality
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+                const content = document.getElementById(targetId);
+                const icon = button.querySelector('i');
+
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    content.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
