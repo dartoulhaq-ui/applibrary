@@ -19,7 +19,7 @@
                 desc: "Game RPG modern yang mirip dengan GTA SA,penuh Story Romansa.",
                 category: "Game",
                 rating:  4.1,
-                iconUrl: "https://ui-avatars.com/api/?name=iM&background=0D8ABC&color=fff&rounded=true&size=128", // Placeholder icon
+                iconUrl: "media/gtavice.png",
                 basicLink: "https://lynk.id/your_link_basic_1",
                 vipLink: "https://t.me/your_telegram_1"
             },
@@ -31,7 +31,7 @@
                 desc: "Aplikasi Emulator untuk bermain game PlayStation di perangkat mobile dengan Fitur premium.",
                 category: "App",
                 rating: 4.8,
-                iconUrl: "https://ui-avatars.com/api/?name=FF&background=F59E0B&color=fff&rounded=true&size=128",
+                iconUrl: "media/psgold.png",
                 basicLink: "https://safefileku.com/download/gtSBaHDv93ByF0mn",
                 vipLink: "http://lynk.id/imde/ym3dxjqe9dp8/checkout"
             },
@@ -43,9 +43,9 @@
                 desc: "Add on yang bisa meningkatkan Grafik Game PS-mu, tanpa Lag.",
                 category: "Tools",
                 rating: 4.4,
-                iconUrl: "https://ui-avatars.com/api/?name=NS&background=10B981&color=fff&rounded=true&size=128",
-                basicLink: "https://lynk.id/your_link_basic_3",
-                vipLink: "https://t.me/your_telegram_3"
+                iconUrl: "media/shadersps.jpg",
+                basicLink: "https://link-target.net/5709170/5es3xjprjvwc",
+                vipLink: "https://lynk.id/imde/5mk4we3er1ln/checkout"
             },
             {
                 id: 4,
@@ -55,7 +55,7 @@
                 desc: "Fitur: Visualisasikan ide-ide kompleks dengan mind mapping berbasis AI.",
                 category: "Game",
                 rating: 4.5,
-                iconUrl: "https://ui-avatars.com/api/?name=MP&background=8B5CF6&color=fff&rounded=true&size=128",
+                iconUrl: "media/toystory.jpg",
                 basicLink: "https://lynk.id/your_link_basic_4",
                 vipLink: "https://t.me/your_telegram_4"
             },
@@ -67,7 +67,7 @@
                 desc: "Petualangan Open World sebuah Negara di AS dari Rockstar North.",
                 category: "Game",
                 rating: 3.9,
-                iconUrl: "https://ui-avatars.com/api/?name=FT&background=EF4444&color=fff&rounded=true&size=128",
+                iconUrl: "media/gtaliberty.jpg",
                 basicLink: "https://lynk.id/your_link_basic_5",
                 vipLink: "https://t.me/your_telegram_5"
             },
@@ -79,7 +79,7 @@
                 desc: "Game dari Anime Naruto Shippuden seru dengan grafis HD dan story yang menarik.",
                 category: "Game",
                 rating: 4.9,
-                iconUrl: "https://ui-avatars.com/api/?name=GX&background=FF6B6B&color=fff&rounded=true&size=128",
+                iconUrl: "media/ninjastorm.jpg",
                 basicLink: "https://lynk.id/your_link_basic_6",
                 vipLink: "https://t.me/your_telegram_6"
             },
@@ -348,7 +348,7 @@
         });
 
         liveChatBtn.addEventListener('click', () => {
-            window.open('https://t.me/your_telegram_link', '_blank'); // Ganti dengan link Telegram Anda
+            window.open('https://t.me/iMDeCentre', '_blank'); // Ganti dengan link Telegram Anda
             helpPopup.classList.add('opacity-0', 'translate-y-4');
             setTimeout(() => {
                 helpPopup.classList.add('hidden');
