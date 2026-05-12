@@ -13,12 +13,12 @@
         const appsData = [
             {
                 id: 1,
-                name: "PVZ 2",
-                badge: "Casual Turn Base Strategy",
-                size: "145 MB",
-                desc: "Plants vs Zombies 2: Game turn base strategi tema Zombie.Cocok buat ber nostalgia.",
+                name: "GTA Vice Cty",
+                badge: "Open World Roleplay",
+                size: "3.2 GB",
+                desc: "Game RPG modern yang mirip dengan GTA SA,penuh Story Romansa.",
                 category: "Game",
-                rating:  4.5,
+                rating:  4.1,
                 iconUrl: "https://ui-avatars.com/api/?name=iM&background=0D8ABC&color=fff&rounded=true&size=128", // Placeholder icon
                 basicLink: "https://lynk.id/your_link_basic_1",
                 vipLink: "https://t.me/your_telegram_1"
@@ -37,36 +37,36 @@
             },
             {
                 id: 3,
-                name: "NoteSync",
-                badge: "Top Rated",
-                size: "18 MB",
-                desc: "Fitur: Catatan digital tersinkronisasi di semua perangkat dengan dukungan Markdown.",
+                name: "Shaders PPSSPP Pack",
+                badge: "Add On Graphic",
+                size: "1.4 MB",
+                desc: "Add on yang bisa meningkatkan Grafik Game PS-mu, tanpa Lag.",
                 category: "Tools",
-                rating: 4.2,
+                rating: 4.4,
                 iconUrl: "https://ui-avatars.com/api/?name=NS&background=10B981&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_3",
                 vipLink: "https://t.me/your_telegram_3"
             },
             {
                 id: 4,
-                name: "MindMap Pro",
-                badge: "Creative",
-                size: "54 MB",
+                name: "Toy Story 3 PS",
+                badge: "Adventure Game",
+                size: "178 MB",
                 desc: "Fitur: Visualisasikan ide-ide kompleks dengan mind mapping berbasis AI.",
-                category: "Tools",
-                rating: 4.7,
+                category: "Game",
+                rating: 4.5,
                 iconUrl: "https://ui-avatars.com/api/?name=MP&background=8B5CF6&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_4",
                 vipLink: "https://t.me/your_telegram_4"
             },
             {
                 id: 5,
-                name: "FinTrack",
-                badge: "Finance",
-                size: "28 MB",
-                desc: "Fitur: Pantau pengeluaran dan pemasukan bulanan untuk keuangan yang lebih sehat.",
-                category: "App",
-                rating: 4.0,
+                name: "GTA Liberty PS",
+                badge: "RPG Open World",
+                size: "80 MB",
+                desc: "Petualangan Open World sebuah Negara di AS dari Rockstar North.",
+                category: "Game",
+                rating: 3.9,
                 iconUrl: "https://ui-avatars.com/api/?name=FT&background=EF4444&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_5",
                 vipLink: "https://t.me/your_telegram_5"
@@ -85,12 +85,12 @@
             },
             {
                 id: 7,
-                name: "Puzzle Master",
-                badge: "Game",
-                size: "90 MB",
-                desc: "Fitur: Game puzzle otak yang menantang untuk semua umur.",
-                category: "Game",
-                rating: 4.3,
+                name: "Floating Multitasking",
+                badge: "Most Download",
+                size: "3 MB",
+                desc: "Fitur: Lakukan semua aktivitas mengambang.Semua Fitur Terbuka.",
+                category: "App",
+                rating: 4.2,
                 iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_7",
                 vipLink: "https://t.me/your_telegram_7"
@@ -175,17 +175,17 @@
                                         <span class="text-xs text-apple-muted dark:text-gray-400 bg-slate-100 dark:bg-gray-700 px-2 py-1 rounded-full">${app.size}</span>
                                     </div>
                                     <h3 class="text-xl font-semibold text-apple-text dark:text-gray-100 mb-1 truncate">${app.name}</h3>
+                                    <p class="text-sm text-apple-muted dark:text-gray-400 mb-3">⭐ ${app.rating} / 5</p>
                                 </div>
                             </div>
-                            <div class="mb-6 overflow-hidden rounded-2xl bg-slate-50 dark:bg-gray-700 py-3 px-2">
-                                <div class="marquee whitespace-nowrap text-sm text-apple-muted dark:text-gray-300">
+                            <div class="mb-6 overflow-hidden rounded-2xl bg-slate-50 dark:bg-gray-700 py-3 px-2 h-20">
+                                <div class="marquee text-sm text-apple-muted dark:text-gray-300 leading-relaxed">
                                     ${app.desc}
                                 </div>
                             </div>
                         </div>
 
                         <div class="flex flex-col gap-3">
-                            <p class="text-xs text-apple-muted dark:text-gray-400 text-center">⭐: ${app.rating}/5</p>
                             <a href="${app.basicLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 active:scale-95">
                                 BASIC(Dengan Iklan+PW)
                             </a>
@@ -284,7 +284,7 @@
             let filteredData;
             if (category === 'Trend') {
                 filteredData = appsData.filter(app => 
-                    app.badge === "Most Dwonload" || app.badge === "Top Rated" || app.badge ==="Viral!!!"
+                    app.badge === "Most Download" || app.badge === "Top Rated" || app.badge ==="Viral!!!"
                 );
             } else {
                 filteredData = appsData.filter(app => app.category === category);

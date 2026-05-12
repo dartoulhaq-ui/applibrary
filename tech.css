@@ -28,14 +28,15 @@
         }
 
         .marquee {
-            display: inline-block;
-            min-width: 100%;
-            animation: marquee 19s linear infinite;
+            display: block;
+            white-space: normal;
+            word-break: break-word;
+            animation: marquee-down 4s linear infinite;
         }
 
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-100%); }
+        @keyframes marquee-down {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(0%); }
         }
 
         button, a {
