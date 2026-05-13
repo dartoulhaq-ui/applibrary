@@ -27,11 +27,16 @@
             50% { background-position: 100% 50%; }
         }
 
-        .marquee {
+.marquee {
             display: block;
             white-space: normal;
             word-break: break-word;
             animation: marquee-down 4s linear infinite;
+            will-change: transform;
+        }
+
+        .marquee--paused {
+            animation: none !important;
         }
 
         @keyframes marquee-down {

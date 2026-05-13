@@ -16,7 +16,7 @@
                 name: "GTA Vice Cty",
                 badge: "Open World Roleplay",
                 size: "3.2 GB",
-                desc: "Game RPG modern yang mirip dengan GTA SA,penuh Story Romansa.",
+                desc: "Game RPG mirip dengan GTA SA,penuh story Romansa",
                 category: "Game",
                 rating:  4.1,
                 iconUrl: "media/gtavice.png",
@@ -28,7 +28,7 @@
                 name: "PPSSPP Gold",
                 badge: "Emulator PlayStation Game",
                 size: "32 MB",
-                desc: "Aplikasi Emulator untuk bermain game PlayStation di perangkat mobile dengan Fitur premium.",
+                desc: "Aplikasi Emulator game PSP mobile dengan render lebih ringan.",
                 category: "App",
                 rating: 4.8,
                 iconUrl: "media/psgold.png",
@@ -40,7 +40,7 @@
                 name: "Shaders PPSSPP Pack",
                 badge: "Add On Graphic",
                 size: "1.4 MB",
-                desc: "Add on yang bisa meningkatkan Grafik Game PS-mu, tanpa Lag.",
+                desc: "Add on 4K HD Grafik,tanpa Lag.",
                 category: "Tools",
                 rating: 4.4,
                 iconUrl: "media/shadersps.jpg",
@@ -52,7 +52,7 @@
                 name: "Toy Story 3 PS",
                 badge: "Adventure Game",
                 size: "178 MB",
-                desc: "Fitur: Visualisasikan ide-ide kompleks dengan mind mapping berbasis AI.",
+                desc: "Game dari Disney dengan konsep gamrplay PlayStation 3.",
                 category: "Game",
                 rating: 4.5,
                 iconUrl: "media/toystory.jpg",
@@ -144,7 +144,8 @@
         }
 
         function renderCards(data, container = sliderContainer) {
-            container.innerHTML = ''; 
+            // hard reset
+            container.innerHTML = '';
 
             if (container === filteredContainer) {
                 if (data.length === 0) {
@@ -161,44 +162,98 @@
                 container.classList.remove('hidden');
             }
 
-            data.forEach(app => {
-                const cardHTML = `
-                    <div class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-ios border border-gray-100/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
-                        <div>
-                            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
-                                <img src="${app.iconUrl}" alt="${app.name} icon" loading="lazy" decoding="async" class="w-16 h-16 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-300">
-                                <div class="flex flex-col flex-1 min-w-0">
-                                    <div class="flex flex-wrap items-center gap-2 mb-2">
-                                        <span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/50 text-apple-blue dark:text-blue-300 text-xs font-semibold rounded-full border border-blue-100 dark:border-blue-800">
-                                            ${app.badge}
-                                        </span>
-                                        <span class="text-xs text-apple-muted dark:text-gray-400 bg-slate-100 dark:bg-gray-700 px-2 py-1 rounded-full">${app.size}</span>
-                                    </div>
-                                    <h3 class="text-xl font-semibold text-apple-text dark:text-gray-100 mb-1 truncate">${app.name}</h3>
-                                    <p class="text-sm text-apple-muted dark:text-gray-400 mb-3">⭐ ${app.rating} / 5</p>
-                                </div>
-                            </div>
-                            <div class="mb-6 overflow-hidden rounded-2xl bg-slate-50 dark:bg-gray-700 py-3 px-2 h-20">
-                                <div class="marquee text-sm text-apple-muted dark:text-gray-300 leading-relaxed">
-                                    ${app.desc}
-                                </div>
-                            </div>
-                        </div>
+            const MAX_CONCURRENT = 999999; // only used conceptually
+            const BATCH_SIZE = 28; // tune: bigger = faster initial, smaller = less jank
+            const total = data.length;
+            let index = 0;
+            let cancelled = false;
 
-                        <div class="flex flex-col gap-3">
-                            <a href="${app.basicLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 active:scale-95">
-                                BASIC(Dengan Iklan+PW)
-                            </a>
-                            
-                            <a href="${app.vipLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-apple-blue hover:from-blue-600 hover:to-blue-700 shadow-sm transition-all duration-300 flex justify-center items-center gap-1.5 active:scale-95">
-                                <i class='bx bxs-crown text-base text-yellow-300'></i>
-                                NO PASSWORD & EASY INSTALL
-                            </a>
+            // cancel any ongoing render loop for this container
+            const key = container === sliderContainer ? 'main' : 'filtered';
+            if (!renderCards._renderState) renderCards._renderState = {};
+            if (renderCards._renderState[key]) {
+                renderCards._renderState[key].cancelled = true;
+            }
+            renderCards._renderState[key] = { cancelled };
+
+            const workChunk = () => {
+                const state = renderCards._renderState[key];
+                if (state && state.cancelled) return;
+
+                const end = Math.min(index + BATCH_SIZE, total);
+                const frag = document.createDocumentFragment();
+
+                for (; index < end; index++) {
+                    const app = data[index];
+                    const cardHTML = `
+                        <div class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-ios border border-gray-100/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                            <div>
+                                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                                    <img src="${app.iconUrl}" alt="${app.name} icon" loading="lazy" decoding="async" width="64" height="64" class="w-16 h-16 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-300">
+                                    <div class="flex flex-col flex-1 min-w-0">
+                                        <div class="flex flex-wrap items-center gap-2 mb-2">
+                                            <span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/50 text-apple-blue dark:text-blue-300 text-xs font-semibold rounded-full border border-blue-100 dark:border-blue-800">
+                                                ${app.badge}
+                                            </span>
+                                            <span class="text-xs text-apple-muted dark:text-gray-400 bg-slate-100 dark:bg-gray-700 px-2 py-1 rounded-full">${app.size}</span>
+                                        </div>
+                                        <h3 class="text-xl font-semibold text-apple-text dark:text-gray-100 mb-1 truncate">${app.name}</h3>
+                                        <p class="text-sm text-apple-muted dark:text-gray-400 mb-3">⭐ ${app.rating} / 5</p>
+                                    </div>
+                                </div>
+                                <div class="mb-6 overflow-hidden rounded-2xl bg-slate-50 dark:bg-gray-700 py-3 px-2 h-20">
+                                    <div class="marquee marquee--paused text-sm text-apple-muted dark:text-gray-300 leading-relaxed" data-marquee="1">
+                                        ${app.desc}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col gap-3">
+                                <a href="${app.basicLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 active:scale-95">
+                                    BASIC(Dengan Iklan+PW)
+                                </a>
+                                
+                                <a href="${app.vipLink}" target="_blank" rel="noreferrer noopener" class="w-full text-center px-4 py-2.5 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-apple-blue hover:from-blue-600 hover:to-blue-700 shadow-sm transition-all duration-300 flex justify-center items-center gap-1.5 active:scale-95">
+                                    <i class='bx bxs-crown text-base text-yellow-300'></i>
+                                    NO PASSWORD & FAST INSTALL
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                `;
-                container.insertAdjacentHTML('beforeend', cardHTML);
-            });
+                    `;
+                    const temp = document.createElement('div');
+                    temp.innerHTML = cardHTML;
+                    frag.appendChild(temp.firstElementChild);
+                }
+
+                container.appendChild(frag);
+
+                if (index < total) {
+                    const idle = (window.requestIdleCallback || function (cb) { return setTimeout(cb, 0); });
+                    idle(workChunk, { timeout: 50 });
+                }
+            };
+
+            // kick off
+            workChunk();
+
+            // marquee visibility observer (runs after first batch + whenever more are appended)
+            // We'll observe container itself; callback toggles child marquees by viewport visibility.
+            if (!renderCards._marqueeObserver) {
+                renderCards._marqueeObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (!entry.target || !entry.target.dataset) continue;
+                        const el = entry.target;
+                        if (entry.isIntersecting) {
+                            el.classList.remove('marquee--paused');
+                        } else {
+                            el.classList.add('marquee--paused');
+                        }
+                    }
+                }, { root: null, threshold: 0.25 });
+            }
+
+            const marquees = container.querySelectorAll('[data-marquee="1"]');
+            marquees.forEach(m => renderCards._marqueeObserver.observe(m));
         }
         // Render awal saat halaman dimuat
         renderCards(appsData);
@@ -467,10 +522,28 @@
         }
 
         function scheduleNextToast() {
-            const delay = Math.random() * (20000 - 6000) + 6000; // Random delay between 6-20 seconds
+            const delay = Math.random() * (20000 - 7000) + 7000; // Random delay between 6-20 seconds
             setTimeout(() => {
                 showToast();
                 scheduleNextToast(); // Schedule the next toast
+            }, delay);
+        }
+
+        // Start the toast notification system
+        let __toastPaused = false;
+        const __pauseToast = () => {
+            __toastPaused = document.hidden === true;
+        };
+        document.addEventListener('visibilitychange', __pauseToast);
+        __pauseToast();
+
+        function scheduleNextToast() {
+            if (__toastPaused) return;
+            const delay = Math.random() * (20000 - 6000) + 6000; // Random delay between 6-20 seconds
+            setTimeout(() => {
+                if (__toastPaused) return;
+                showToast();
+                scheduleNextToast();
             }, delay);
         }
 
