@@ -1,0 +1,7 @@
+
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 24px; background: #f8fafc; color: #111827; }
+        .container { max-width: 760px; margin: auto; }
+        h1 { font-size: 2rem; margin-bottom: 16px; }
+        h2 { font-size: 1rem; margin-bottom: 12px; color: #4b5563; }
+        p { line-height: 1.75; margin-bottom: 1rem; }
+        a { color: #2563eb; text-decoration: none; }
