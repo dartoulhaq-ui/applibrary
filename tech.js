@@ -16,7 +16,7 @@
                 name: "GTA Vice Cty",
                 badge: "Open World Roleplay",
                 size: "3.2 GB",
-                desc: "Game RPG mirip dengan GTA SA,penuh story Romansa",
+                desc: "Grand Theft Auto penuh Story Romansa",
                 category: "Game",
                 rating:  4.1,
                 iconUrl: "media/gtavice.png",
@@ -28,7 +28,7 @@
                 name: "PPSSPP Gold",
                 badge: "Emulator PlayStation Game",
                 size: "32 MB",
-                desc: "Aplikasi Emulator game PSP mobile dengan render lebih ringan.",
+                desc:"Tempatnya Game PS dengan render lebih ringan dan stabil",
                 category: "App",
                 rating: 4.8,
                 iconUrl: "media/psgold.png",
@@ -52,7 +52,7 @@
                 name: "Toy Story 3 PS",
                 badge: "Adventure Game",
                 size: "178 MB",
-                desc: "Game dari Disney dengan konsep gamrplay PlayStation 3.",
+                desc:"Game dari Disney dengan konsep gamrplay PlayStation 3.",
                 category: "Game",
                 rating: 4.5,
                 iconUrl: "media/toystory.jpg",
@@ -64,7 +64,7 @@
                 name: "GTA Liberty PS",
                 badge: "RPG Open World",
                 size: "80 MB",
-                desc: "Petualangan Open World sebuah Negara di AS dari Rockstar North.",
+                desc:"Grand Theft Auto spesial series dari Rockstar North",
                 category: "Game",
                 rating: 3.9,
                 iconUrl: "media/gtaliberty.jpg",
@@ -76,7 +76,7 @@
                 name: "Naruto Ultimate Ninja Storm",
                 badge: "Anime RPG",
                 size: "3.1 GB",
-                desc: "Game dari Anime Naruto Shippuden seru dengan grafis HD dan story yang menarik.",
+                desc:"Game dari Anime Naruto Shippuden seru dengan grafis HD dan story yang menarik",
                 category: "Game",
                 rating: 4.9,
                 iconUrl: "media/ninjastorm.jpg",
@@ -86,11 +86,23 @@
             {
                 id: 7,
                 name: "Floating Multitasking",
-                badge: "Most Download",
+                badge: "Top Rated",
                 size: "3 MB",
                 desc: "Fitur: Lakukan semua aktivitas mengambang.Semua Fitur Terbuka.",
                 category: "App",
                 rating: 4.2,
+                iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
+                basicLink: "https://lynk.id/your_link_basic_7",
+                vipLink: "https://t.me/your_telegram_7"
+            },
+            {
+                id: 8,
+                name: "FNAF 4",
+                badge: "Most Download",
+                size: "71 MB",
+                desc: "Five Night at's Freddy series ke -4",
+                category: "Game",
+                rating: 4.3,
                 iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_7",
                 vipLink: "https://t.me/your_telegram_7"
@@ -201,7 +213,7 @@
                                         <p class="text-sm text-apple-muted dark:text-gray-400 mb-3">⭐ ${app.rating} / 5</p>
                                     </div>
                                 </div>
-                                <div class="mb-6 overflow-hidden rounded-2xl bg-slate-50 dark:bg-gray-700 py-3 px-2 h-20">
+                                <div class="mb-6 overflow-hidden rounded-2xl bg-slate-50 dark:bg-gray-700 py-3 px-2 h-45">
                                     <div class="marquee marquee--paused text-sm text-apple-muted dark:text-gray-300 leading-relaxed" data-marquee="1">
                                         ${app.desc}
                                     </div>

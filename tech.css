@@ -31,7 +31,7 @@
             display: block;
             white-space: normal;
             word-break: break-word;
-            animation: marquee-down 4s linear infinite;
+            animation: marquee-down 5s linear infinite;
             will-change: transform;
         }
 
@@ -40,12 +40,8 @@
         }
 
         @keyframes marquee-down {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(0%); }
-        }
-
-        button, a {
-            touch-action: manipulation;
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
         }
 
         html { scroll-behavior: smooth; }
