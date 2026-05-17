@@ -20,8 +20,8 @@
                 category: "Game",
                 rating:  4.1,
                 iconUrl: "media/gtavice.png",
-                basicLink: "https://lynk.id/your_link_basic_1",
-                vipLink: "https://t.me/your_telegram_1"
+                basicLink: "https://safefileku.com/download/X2deRxGQwkGkZsKs",
+                vipLink: "http://lynk.id/imde/x6dqrrzrmg5d/checkout"
             },
             {
                 id: 2,
