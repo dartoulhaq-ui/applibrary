@@ -69,7 +69,7 @@
                 rating: 3.9,
                 iconUrl: "media/gtaliberty.jpg",
                 basicLink: "https://safefileku.com/download/7dwNS7EE098CwTkX",
-                vipLink: "https://t.me/your_telegram_5"
+                vipLink: "http://lynk.id/imde/yvlpjzkejj2m/checkout"
             },
             {
                 id: 6,
@@ -102,7 +102,7 @@
                 size: "71 MB",
                 desc: "Five Night at's Freddy series ke -4",
                 category: "Game",
-                rating: 4.3,
+                rating: 4.0,
                 iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_7",
                 vipLink: "https://t.me/your_telegram_7"
@@ -113,21 +113,21 @@
                 name: "NFS Most-Wanted",
                 badge: "Racing Offline",
                 size: "390 MB",
-                desc: "Desk",
-                category: "Game/App/Tools/Trend",
-                rating: 5,
+                desc: "1st Need For Speed Old Era",
+                category: "Game",
+                rating: 4.8,
                 iconUrl: "media/nfsmost.jpg",
                 basicLink: "http://lynk.id/imde/jokr5jjvpwrm/checkout",
                 vipLink: "http://lynk.id/imde/jokr5jjvpwrm/checkout"
             },
             {
                 id: 10,
-                name: "N",
-                badge: "Viral!!!/Most Download/Top Rated",
-                size: "1 MB",
-                desc: "Desk",
-                category: "Game/App/Tools/Trend",
-                rating: 5,
+                name: "C0C",
+                badge: "Viral!!!",
+                size: "189 MB",
+                desc: "Based Strategy&War Clan",
+                category: "Game",
+                rating: 4.2,
                 iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_7",
                 vipLink: "https://t.me/your_telegram_7"
