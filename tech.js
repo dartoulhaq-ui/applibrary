@@ -51,24 +51,24 @@
                 id: 4,
                 name: "Toy Story 3 PS",
                 badge: "Adventure Game",
-                size: "178 MB",
+                size: "194 MB",
                 desc:"Game dari Disney dengan konsep gamrplay PlayStation 3.",
                 category: "Game",
                 rating: 4.5,
                 iconUrl: "media/toystory.jpg",
-                basicLink: "https://lynk.id/your_link_basic_4",
-                vipLink: "https://t.me/your_telegram_4"
+                basicLink: "https://safefileku.com/download/KwwM7LuPykNyTQwh",
+                vipLink: "http://lynk.id/imde/77p19pj5q3oy/checkout"
             },
             {
                 id: 5,
                 name: "GTA Liberty PS",
                 badge: "RPG Open World",
-                size: "80 MB",
+                size: "475 MB",
                 desc:"Grand Theft Auto spesial series dari Rockstar North",
                 category: "Game",
                 rating: 3.9,
                 iconUrl: "media/gtaliberty.jpg",
-                basicLink: "https://lynk.id/your_link_basic_5",
+                basicLink: "https://safefileku.com/download/7dwNS7EE098CwTkX",
                 vipLink: "https://t.me/your_telegram_5"
             },
             {
@@ -80,17 +80,17 @@
                 category: "Game",
                 rating: 4.9,
                 iconUrl: "media/ninjastorm.jpg",
-                basicLink: "https://lynk.id/your_link_basic_6",
-                vipLink: "https://t.me/your_telegram_6"
+                basicLink: "https://safefileku.com/download/Uqx9PGx3HTvvF8ow",
+                vipLink: "http://lynk.id/imde/gl3rk3qgz9pz/checkout"
             },
             {
                 id: 7,
-                name: "Floating Multitasking",
+                name: "KineMaster New",
                 badge: "Top Rated",
-                size: "3 MB",
-                desc: "Lakukan semua aktivitas mengambang.!Semua Fitur Terbuka.",
+                size: "180 MB",
+                desc: "Aplikasi Editing Terlengkap & The best.",
                 category: "App",
-                rating: 4.2,
+                rating: 4.5,
                 iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
                 basicLink: "https://lynk.id/your_link_basic_7",
                 vipLink: "https://t.me/your_telegram_7"
@@ -110,15 +110,15 @@
             //
             {
                 id: 9,
-                name: "N",
-                badge: "Viral!!!/Most Download/Top Rated",
-                size: "1 MB",
+                name: "NFS Most-Wanted",
+                badge: "Racing Offline",
+                size: "390 MB",
                 desc: "Desk",
                 category: "Game/App/Tools/Trend",
                 rating: 5,
-                iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
-                basicLink: "https://lynk.id/your_link_basic_7",
-                vipLink: "https://t.me/your_telegram_7"
+                iconUrl: "media/nfsmost.jpg",
+                basicLink: "http://lynk.id/imde/jokr5jjvpwrm/checkout",
+                vipLink: "http://lynk.id/imde/jokr5jjvpwrm/checkout"
             },
             {
                 id: 10,
@@ -712,8 +712,8 @@
 
         // Toast Notification System
         const toastContainer = document.getElementById('toast-container');
-        const names = ['AlexTzy', 'fauzan01', 'AdamMh', 'Wowo', 'Fufaffa', 'rizky', 'David', 'surya', 'Agus', 'chelln'];
-        const apps = ['PVZ 2', 'PPSSPP Gold', 'NoteSync', 'MindMap Pro', 'FinTrack', 'Naruto Ultimate Ninja Storm', 'Puzzle Master'];
+        const names = ['AlexTzy', 'fauzan01', 'AdamMh', 'Wowo', 'Fufaffa', 'rizky', 'David', 'surya', 'Agus', 'chelln','Putra07'];
+        const apps = ['KineMastr', 'PPSSPP Gold', 'GTA LibrtyCty', 'GTA ViceCty', 'ToyStory 3', 'Naruto Ultimate Ninja Storm', 'NFS Most Wanted','FNAF 4'];
         const timeUnits = ['detik', 'menit', 'jam'];
 
         function getRandomTime() {
