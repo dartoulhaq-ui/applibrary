@@ -91,9 +91,9 @@
                 desc: "Aplikasi Editing Terlengkap & The best.",
                 category: "App",
                 rating: 4.5,
-                iconUrl: "https://ui-avatars.com/api/?name=PM&background=4ECDC4&color=fff&rounded=true&size=128",
-                basicLink: "https://lynk.id/your_link_basic_7",
-                vipLink: "https://t.me/your_telegram_7"
+                iconUrl: "media/kinmastr.jpg",
+                basicLink: "https://safefileku.com/download/MwJFQzOfWJa4RPtJ",
+                vipLink: "http://lynk.id/imde/xjxew8lg21ev/checkout"
             },
             {
                 id: 8,
